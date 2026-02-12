@@ -1,5 +1,6 @@
-// Cấu hình API Key (Lưu ý: Nên để trong biến môi trường env nếu deploy thật)
-const API_KEY = "sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+// Cấu hình URL server của bạn (Vercel)
+const SERVER_URL = "https://e-temple-backend.vercel.app/api/chat";
+
 export const simulateAIPrayer = async (type, name, age) => {
   const currentYear = new Date().getFullYear();
   const birthYear = currentYear - age;
@@ -14,45 +15,33 @@ export const simulateAIPrayer = async (type, name, age) => {
     topic = "tâm hồn thanh thản, an nhiên tự tại, vạn sự tùy duyên";
   }
 
-  // 2. Tạo Prompt (Câu lệnh) cho ChatGPT
-  const systemPrompt =
-    "Bạn là một thầy đồ nho nhã, uyên bác. Hãy viết một lời khấn nguyện ngắn gọn (dưới 50 từ), súc tích, văn phong trang trọng, cổ kính cho năm mới Bính Ngọ 2026.";
-  const userPrompt = `Viết lời khấn cho thí chủ tên là ${name}, sinh năm ${birthYear} (${age} tuổi). Cầu mong về: ${topic}.`;
+  // 2. Tạo Prompt (Gộp system và user prompt gửi lên server)
+  const fullPrompt = `Bạn là một thầy đồ nho nhã, uyên bác. Hãy viết một lời khấn nguyện ngắn gọn (dưới 50 từ), súc tích, văn phong trang trọng, cổ kính cho năm mới Bính Ngọ 2026 cho thí chủ tên là ${name}, sinh năm ${birthYear} (${age} tuổi). Cầu mong về: ${topic}.`;
 
   try {
-    // 3. Gọi API OpenAI
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    // 3. Gọi API lên Server Node.js của bạn thay vì gọi trực tiếp OpenAI
+    const response = await fetch(SERVER_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${API_KEY}`,
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini", // Hoặc "gpt-4o-mini" cho rẻ và nhanh
-        messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: userPrompt },
-        ],
-        temperature: 0.7, // Độ sáng tạo vừa phải
-        max_tokens: 100,
+        message: fullPrompt, // Key này phải khớp với req.body.message ở server Node.js
       }),
     });
 
     const data = await response.json();
 
-    // Nếu API lỗi hoặc hết quota, ném lỗi để xuống phần catch dùng fallback
-    if (!response.ok || !data.choices) throw new Error("API Error");
+    if (!response.ok || !data.reply) throw new Error("API Server Error");
 
-    const aiText = data.choices[0].message.content.trim();
+    const aiText = data.reply.trim();
 
-    // 4. Xử lý format: Tách chữ cái đầu tiên (Quan trọng)
-    // Ví dụ: "Kính thưa" -> "K ính thưa"
+    // 4. Xử lý format
     return formatFirstLetter(aiText);
   } catch (error) {
-    console.error("Lỗi gọi AI, dùng lời khấn mặc định:", error);
+    console.error("Lỗi gọi Server API, dùng lời khấn mặc định:", error);
 
-    // --- FALLBACK (Dự phòng khi API lỗi/hết tiền) ---
-    // Vẫn giữ logic cũ để app không bị chết
+    // --- FALLBACK (Dự phòng khi API lỗi) ---
     let defaultText = "";
     if (type === "health") {
       defaultText = `Kính thưa thần linh, thí chủ ${name}, sinh năm ${birthYear}. Năm Bính Ngọ 2026, cầu mong gia đạo bình an, sức khỏe dồi dào như mãnh mã.`;
@@ -62,20 +51,17 @@ export const simulateAIPrayer = async (type, name, age) => {
       defaultText = `Con là ${name}, xin rũ bỏ muộn phiền. Nguyện năm mới tâm an, vạn sự tùy duyên.`;
     }
 
-    // Vẫn áp dụng format chữ đầu cho nội dung mặc định
     return formatFirstLetter(defaultText);
   }
 };
 
-// Hàm phụ trợ để tách chữ cái đầu
+// Hàm phụ trợ giữ nguyên
 const formatFirstLetter = (text) => {
   if (!text) return "";
-  // Lấy chữ cái đầu, viết hoa + dấu cách + phần còn lại của chuỗi
   const firstChar = text.charAt(0).toUpperCase();
   const restOfString = text.slice(1);
   return `${firstChar} ${restOfString}`;
 };
-
 export const simulateAICalligraphy = async (word, name) => {
   return new Promise((resolve) => {
     setTimeout(() => {
