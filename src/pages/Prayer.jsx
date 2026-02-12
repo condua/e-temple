@@ -182,7 +182,9 @@ const Prayer = () => {
           ) : (
             <div className="text-center opacity-40">
               <Scroll className="w-16 h-16 mx-auto mb-4" />
-              <p className="font-serif italic">
+              <p
+                className={`font-serif italic ${isDark ? "text-white" : "text-gray-500"}`}
+              >
                 Hãy chọn ý nguyện và gửi lời khấn chân thành.
               </p>
             </div>

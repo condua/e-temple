@@ -99,7 +99,7 @@ const MainLayout = ({ user, setUser }) => {
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-serif ${
                   isActive
                     ? "bg-red-800 text-yellow-400 shadow-md font-bold"
-                    : "hover:bg-gray-100 dark:hover:bg-slate-700"
+                    : "hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-red-800"
                 }`}
               >
                 {item.icon}

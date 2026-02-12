@@ -38,7 +38,7 @@ const Incense = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-full text-center p-4">
+    <div className="flex flex-col items-center justify-center h-screen text-center p-4">
       <h2
         className={`text-4xl font-calligraphy mb-4 ${isDark ? "text-yellow-400" : "text-red-800"}`}
       >
