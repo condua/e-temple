@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { Gift, X, Sparkles } from "lucide-react";
 import { useAudio } from "../hooks/useAudio";
 import { SOUNDS } from "../data/constants";
-
+import { rewards } from "../data/rewards";
 // Component hoa mai/đào trang trí
 const Blossom = ({ top, left, delay, color = "bg-yellow-300" }) => (
   <div
@@ -22,15 +22,6 @@ const LuckyMoney = () => {
   const [result, setResult] = useState(null);
   const [openedIndices, setOpenedIndices] = useState([]);
   const successSound = useAudio(SOUNDS.success);
-
-  const rewards = [
-    { type: "money", val: "10.000đ", wish: "Lộc nhỏ đầu xuân" },
-    { type: "wish", val: "Vạn Sự Như Ý", wish: "Cầu được ước thấy" },
-    { type: "wish", val: "Mã Đáo Thành Công", wish: "Sự nghiệp thăng tiến" },
-    { type: "item", val: "Vòng Tay Bình An", wish: "Gia đạo an khang" },
-    { type: "money", val: "68.000đ", wish: "Lộc phát tài tài" },
-    { type: "wish", val: "Tấn Tài Tấn Lộc", wish: "Tiền vào như nước" },
-  ];
 
   // Cập nhật vị trí bám sát theo các cành cây CSS vẽ bên dưới
   // top/left được tinh chỉnh để rải đều ra 2 bên thân cây
