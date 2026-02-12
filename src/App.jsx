@@ -14,6 +14,7 @@ import Fortune from "./pages/Fortune";
 import LuckyMoney from "./pages/LuckyMoney";
 import Calligraphy from "./pages/Calligraphy";
 import Donation from "./pages/Donation";
+import Calendar from "./pages/Calendar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,6 +41,7 @@ function App() {
           <Route path="lucky" element={<LuckyMoney />} />
           <Route path="calligraphy" element={<Calligraphy />} />
           <Route path="donation" element={<Donation />} />
+          <Route path="calendar" element={<Calendar />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
