@@ -29,12 +29,12 @@ const NAV_ITEMS = [
   { path: "/fortune", label: "Xin Xăm", icon: <Scroll size={20} /> },
   { path: "/lucky", label: "Hái Lộc", icon: <Gift size={20} /> },
   { path: "/calligraphy", label: "Xin Chữ", icon: <PenTool size={20} /> },
-  { path: "/donation", label: "Công Đức", icon: <HeartHandshake size={20} /> },
   {
     path: "/calendar",
     label: "Lịch vạn niên",
     icon: <Calendar size={20} />,
   },
+  { path: "/donation", label: "Công Đức", icon: <HeartHandshake size={20} /> },
 ];
 
 const MainLayout = ({ user, setUser }) => {
