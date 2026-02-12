@@ -1,7 +1,5 @@
 // Cấu hình API Key (Lưu ý: Nên để trong biến môi trường env nếu deploy thật)
-const API_KEY =
-  "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";
-
+const API_KEY = "sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 export const simulateAIPrayer = async (type, name, age) => {
   const currentYear = new Date().getFullYear();
   const birthYear = currentYear - age;
