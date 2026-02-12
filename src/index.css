@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap");
+
+@import "tailwindcss";
+
+/* Google Fonts */
+
+/* ===== Theme tokens ===== */
+@theme {
+  --font-calligraphy: "Dancing Script", cursive;
+  --font-serif: "Noto Serif", serif;
+}
+
+/* ===== Utilities ===== */
+@layer utilities {
+  .font-calligraphy {
+    font-family: var(--font-calligraphy);
+  }
+
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .writing-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+
+  .animate-smoke {
+    animation: smoke 2.5s ease-out infinite;
+  }
+
+  .animate-shake {
+    animation: shake 0.5s infinite;
+  }
+
+  .animate-sway {
+    animation: sway 3s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-zoom-in {
+    animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+
+/* ===== Keyframes ===== */
+/* Thêm vào index.css hoặc file css toàn cục */
+@keyframes smoke {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-80px) scale(3);
+    opacity: 0;
+  }
+}
+
+.animate-smoke {
+  animation: smoke 2s ease-out infinite;
+}
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== Base (scrollbar) ===== */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #b91c1c;
+    border-radius: 3px;
+  }
+}
