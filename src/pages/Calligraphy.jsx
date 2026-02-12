@@ -22,7 +22,7 @@ const Calligraphy = () => {
   };
 
   return (
-    <div className="h-full flex flex-col p-4">
+    <div className="h-screen flex flex-col p-4">
       <h2
         className={`text-4xl font-calligraphy text-center mb-4 ${isDark ? "text-yellow-400" : "text-gray-800"}`}
       >

@@ -55,7 +55,7 @@ const Home = () => {
       <div className="bg-gradient-to-r from-red-800 to-red-600 rounded-2xl p-8 text-white mb-8 shadow-xl relative overflow-hidden group border-2 border-yellow-500">
         <div className="relative z-10">
           <h2 className="text-3xl font-bold font-calligraphy mb-2">
-            Chào, {user.name}
+            Xin chào thí chủ, {user.name}
           </h2>
           <p className="opacity-90 text-base font-serif">
             Năm mới Bính Ngọ 2026
@@ -64,9 +64,13 @@ const Home = () => {
             Mã Đáo Thành Công - Vạn Sự Như Ý
           </p>
         </div>
-        <div className="absolute right-[-20px] top-[-20px] text-[10rem] opacity-10 rotate-12 transition-transform group-hover:rotate-0 duration-700">
+        {/* <div className="absolute right-[-20px] top-[-20px] text-[10rem] opacity-10 rotate-12 transition-transform group-hover:rotate-0 duration-700">
           🐎
-        </div>
+        </div> */}
+        <img
+          className="absolute right-[-10px] top-[-40px] opacity-90"
+          src="https://res.cloudinary.com/dy9yts4fa/image/upload/v1770915408/9b8652e8d7b213fd96f7af5dcd0d417f_q960hz.gif"
+        />
         <div className="absolute left-[-20px] bottom-[-20px] text-8xl opacity-10">
           🌸
         </div>

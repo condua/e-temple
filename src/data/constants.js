@@ -52,6 +52,7 @@ export const SOUNDS = {
   click:
     "https://upload.wikimedia.org/wikipedia/commons/4/4e/Wood_Block_Click.ogg",
   shake:
-    "https://upload.wikimedia.org/wikipedia/commons/7/77/Maracas_rhythm.ogg",
-  success: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Chime_C.ogg",
+    "https://res.cloudinary.com/dy9yts4fa/video/upload/v1770914228/Sound%20effects/shake_sound_kspnpl.mp3",
+  success:
+    "https://res.cloudinary.com/dy9yts4fa/video/upload/v1770913426/freesound_community-success-1-6297_iftwuv.mp3",
 };

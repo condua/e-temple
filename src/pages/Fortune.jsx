@@ -23,11 +23,11 @@ const Fortune = () => {
         FORTUNES[Math.floor(Math.random() * FORTUNES.length)];
       setResult(randomFortune);
       successSound.playOneShot();
-    }, 2000);
+    }, 3000);
   };
 
   return (
-    <div className="flex flex-col items-center h-full p-4 overflow-y-auto">
+    <div className="flex flex-col items-center h-screen p-4 overflow-y-auto">
       <h2
         className={`text-4xl font-calligraphy mb-4 ${isDark ? "text-yellow-400" : "text-red-800"}`}
       >

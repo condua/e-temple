@@ -116,7 +116,7 @@ const MainLayout = ({ user, setUser }) => {
             </div>
             <div className="overflow-hidden">
               <p className="font-bold text-sm truncate">{user?.name}</p>
-              <p className="text-xs opacity-70">Tín chủ</p>
+              <p className="text-xs opacity-70">Thí chủ</p>
             </div>
           </div>
         </div>
