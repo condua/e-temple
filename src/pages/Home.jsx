@@ -113,9 +113,13 @@ const Home = () => {
         ))}
       </div>
       <div
-        className={`mt-10 text-center text-xs font-serif ${isDark ? "text-gray-500" : "text-gray-400"}`}
+        className={`mt-10 text-center sm:text-lg text-xs font-serif ${isDark ? "text-gray-500" : "text-gray-400"}`}
       >
         <p>Xuân Bính Ngọ 2026 - Giữ gìn bản sắc văn hóa Việt.</p>
+
+        <p className="mt-2">
+          © {new Date().getFullYear()} Phan Hoàng Phúc. All rights reserved.
+        </p>
       </div>
     </div>
   );

@@ -174,12 +174,14 @@ const Prayer = () => {
           ) : displayedText ? (
             <div className="w-full">
               <div className="mb-4 text-center border-b border-red-800/20 pb-2">
-                <span className="text-xs  uppercase tracking-[0.3em] text-red-800/60 font-bold">
+                <span
+                  className={`sm:text-lg text-sm  uppercase tracking-[0.3em] ${isDark ? "text-red-600/90" : "text-red-800/60 "} font-bold`}
+                >
                   Phụng Thiên Thừa Vận
                 </span>
               </div>
               <p
-                className={`font-calligraphy text-lg sm:text-3xl leading-relaxed text-justify indent-8 first-letter:text-4xl first-letter:font-bold first-letter:text-red-700
+                className={`font-calligraphy text-2xl sm:text-3xl leading-relaxed text-justify indent-8 first-letter:text-4xl first-letter:font-bold first-letter:text-red-700
                 ${isDark ? "text-gray-200" : "text-stone-800"}`}
               >
                 {displayedText}

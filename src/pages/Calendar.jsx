@@ -283,7 +283,7 @@ const Calendar = () => {
   const theme = useMemo(() => {
     return isDark
       ? {
-          bg: "bg-[#121212]",
+          bg: "bg-[#10182B]",
           card: "bg-[#1e1e1e]",
           text: "text-gray-100",
           subText: "text-gray-400",

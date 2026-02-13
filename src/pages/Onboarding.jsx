@@ -8,22 +8,52 @@ const Onboarding = ({ onComplete }) => {
   // Lấy ngày hiện tại định dạng YYYY-MM-DD để chặn lịch
   const today = new Date().toISOString().split("T")[0];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    // Thêm trạng thái loading nếu cần: setIsLoading(true);
 
     if (name && dob) {
-      // Validation: Chặn nếu người dùng cố tình nhập ngày tương lai
+      // 1. Validation logic
       if (dob > today) {
         setError("Ngày sinh không được lớn hơn ngày hôm nay!");
         return;
       }
 
       const userData = { name, dob };
-      // Lưu vào LocalStorage
-      localStorage.setItem("temple_user_2026", JSON.stringify(userData));
-      // Gọi hàm callback để chuyển màn hình
-      onComplete(userData);
+
+      try {
+        // 2. Gửi dữ liệu lên API POST
+        const response = await fetch(
+          "https://e-temple-backend.vercel.app/api/users",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userData),
+          },
+        );
+
+        if (!response.ok) {
+          // Nếu server trả về lỗi (ví dụ 500 như bạn gặp lúc nãy)
+          throw new Error("Không thể lưu dữ liệu lên server!");
+        }
+
+        // 3. Nếu API thành công, tiến hành lưu LocalStorage và chuyển màn
+        localStorage.setItem("temple_user_2026", JSON.stringify(userData));
+
+        // Trả về kết quả từ API nếu cần
+        const result = await response.json();
+        onComplete(userData);
+      } catch (err) {
+        // 4. Xử lý lỗi kết nối hoặc lỗi từ Server
+        setError("Có lỗi xảy ra: " + err.message);
+      } finally {
+        // setIsLoading(false);
+      }
+    } else {
+      setError("Vui lòng nhập đầy đủ thông tin!");
     }
   };
 

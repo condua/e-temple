@@ -1,18 +1,45 @@
 import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Gift, X, Sparkles } from "lucide-react";
+import { Gift, X, Sparkles, Flower } from "lucide-react";
 import { useAudio } from "../hooks/useAudio";
 import { SOUNDS } from "../data/constants";
 import { rewards } from "../data/rewards";
+
 // Component hoa mai/đào trang trí
-const Blossom = ({ top, left, delay, color = "bg-yellow-300" }) => (
-  <div
-    className={`absolute w-3 h-3 md:w-4 md:h-4 ${color} rounded-full opacity-80 animate-pulse`}
-    style={{ top, left, animationDelay: delay }}
-  >
-    <div className="absolute inset-0 bg-white/40 blur-[2px] rounded-full"></div>
-  </div>
-);
+const Blossom = ({ top, left, delay }) => {
+  // Danh sách màu đặc trưng ngày Tết
+  const tetColors = [
+    "text-yellow-400", // Mai vàng rực rỡ
+    "text-amber-300", // Mai vàng nhẹ
+    "text-pink-400", // Đào phớt
+    "text-rose-500", // Đào thắm
+    "text-red-500", // Sắc đỏ may mắn
+  ];
+
+  // Chọn ngẫu nhiên một màu từ danh sách
+  const randomColor = tetColors[Math.floor(Math.random() * tetColors.length)];
+
+  return (
+    <div
+      className="absolute animate-pulse"
+      style={{
+        top,
+        left,
+        animationDelay: delay,
+      }}
+    >
+      <Flower
+        size={16}
+        className={`${randomColor} drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] md:w-5 md:h-5`}
+        fill="currentColor"
+        strokeWidth={1.5}
+      />
+
+      {/* Hiệu ứng tỏa sáng nhẹ quanh hoa */}
+      <div className="absolute inset-0 bg-white/30 blur-[6px] rounded-full -z-10 scale-150"></div>
+    </div>
+  );
+};
 
 const LuckyMoney = () => {
   // Nếu không dùng outlet context thì mock function để test, bạn có thể bỏ dòng này nếu đã có context thật
@@ -84,13 +111,13 @@ const LuckyMoney = () => {
           {/* Cành phải dưới */}
           <div className="absolute bottom-[40%] left-1/2 w-[40%] h-3 md:h-4 bg-[#5D4037] origin-left rotate-[15deg] rounded-full"></div>
           {/* Cành trái trên */}
-          <div className="absolute bottom-[60%] left-1/2 w-[35%] h-2 md:h-4 bg-[#5D4037] -translate-x-full origin-right -rotate-[20deg] rounded-full"></div>
+          <div className="absolute md:bottom-[60%] bottom-[58%] left-1/2 w-[35%] h-3 md:h-4 bg-[#5D4037] -translate-x-full origin-right -rotate-[20deg] rounded-full"></div>
           {/* Cành phải trên */}
-          <div className="absolute bottom-[80%] left-1/2 w-[40%] h-2 md:h-3 bg-[#5D4037] origin-left rotate-[-20deg] rounded-full"></div>
+          <div className="absolute bottom-[80%] left-1/2 w-[40%] h-3 md:h-3 bg-[#5D4037] origin-left rotate-[-20deg] rounded-full"></div>
 
-          <div className="absolute bottom-[80%] left-1/2 w-[40%] h-2 md:h-3 bg-[#5D4037] -translate-x-full origin-left -rotate-[-5deg] rounded-full"></div>
+          <div className="absolute bottom-[80%] left-1/2 w-[40%] h-3 md:h-3 bg-[#5D4037] -translate-x-full origin-left -rotate-[-5deg] rounded-full"></div>
 
-          <div className="absolute bottom-[55%] left-1/2 w-[35%] h-2 md:h-4 bg-[#5D4037] origin-right rotate-[10deg] rounded-full"></div>
+          <div className="absolute bottom-[55%] left-1/2 w-[35%] h-3 md:h-4 bg-[#5D4037] origin-right rotate-[10deg] rounded-full"></div>
 
           {/* Tán lá/Hoa nền */}
           <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-full h-[80%] bg-yellow-400/10 blur-3xl rounded-full"></div>
@@ -100,8 +127,11 @@ const LuckyMoney = () => {
           <Blossom top="15%" left="65%" delay="1s" />
           <Blossom top="45%" left="15%" delay="2s" />
           <Blossom top="35%" left="80%" delay="0.5s" />
-          <Blossom top="60%" left="90%" delay="1.5s" color="bg-pink-300" />
-          <Blossom top="55%" left="10%" delay="1.2s" color="bg-pink-300" />
+          <Blossom top="60%" left="90%" delay="1.5s" />
+          <Blossom top="55%" left="10%" delay="1.2s" />
+          <Blossom top="55%" left="50%" delay="0.8s" />
+          <Blossom top="85%" left="30%" delay="0.3s" />
+          <Blossom top="70%" left="75%" delay="1.8s" />
         </div>
 
         {/* --- DANH SÁCH BAO LÌ XÌ --- */}
