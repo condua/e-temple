@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Sparkles, Send, Scroll, Hand, Heart } from "lucide-react";
+import {
+  Sparkles,
+  Send,
+  Scroll,
+  Hand,
+  Heart,
+  HeartHandshake,
+  Gem,
+  HeartPulse,
+} from "lucide-react";
 import { simulateAIPrayer } from "../utils/helpers";
 import { useAudio } from "../hooks/useAudio";
 import { SOUNDS } from "../data/constants";
@@ -49,7 +58,7 @@ const Prayer = () => {
     {
       id: "health",
       label: "Cầu Sức Khỏe",
-      icon: <Heart className="w-6 h-6" />,
+      icon: <HeartPulse className="w-6 h-6" />,
       desc: "Bệnh tật tiêu tan, thân tâm an lạc",
     },
     {
@@ -57,6 +66,12 @@ const Prayer = () => {
       label: "Cầu Công Danh",
       icon: <Scroll className="w-6 h-6" />,
       desc: "Thăng quan tiến chức, mã đáo thành công",
+    },
+    {
+      id: "love",
+      label: "Cầu Tình Duyên",
+      icon: <Heart className="w-6 h-6" />,
+      desc: "Se duyên kết tóc, tìm được ý trung nhân",
     },
     {
       id: "repent",
@@ -85,7 +100,7 @@ const Prayer = () => {
       </div>
 
       {/* Chọn loại cầu nguyện - Style thẻ bài */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
         {prayerOptions.map((opt) => (
           <button
             key={opt.id}

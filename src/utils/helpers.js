@@ -11,6 +11,8 @@ export const simulateAIPrayer = async (type, name, age) => {
     topic = "sức khỏe dồi dào, gia đạo bình an, tai qua nạn khỏi";
   } else if (type === "career") {
     topic = "công danh thăng tiến, học hành đỗ đạt, mã đáo thành công";
+  } else if (type === "love") {
+    topic = "tình duyên viên mãn, hạnh phúc lứa đôi, gia đình hòa thuận";
   } else {
     topic = "tâm hồn thanh thản, an nhiên tự tại, vạn sự tùy duyên";
   }
@@ -47,6 +49,9 @@ export const simulateAIPrayer = async (type, name, age) => {
       defaultText = `Kính thưa thần linh, thí chủ ${name}, sinh năm ${birthYear}. Năm Bính Ngọ 2026, cầu mong gia đạo bình an, sức khỏe dồi dào như mãnh mã.`;
     } else if (type === "career") {
       defaultText = `Thí chủ ${name}, ${age} tuổi. Năm Bính Ngọ cầu mong đường công danh phi nước đại, mã đáo thành công.`;
+    } else if (type === "love") {
+      defaultText = `Con là ${name}, sinh năm ${birthYear}. Năm mới Bính Ngọ 2026, nguyện tình duy
+ên viên mãn, gia đình hòa thuận, hạnh phúc tràn đầy.`;
     } else {
       defaultText = `Con là ${name}, xin rũ bỏ muộn phiền. Nguyện năm mới tâm an, vạn sự tùy duyên.`;
     }

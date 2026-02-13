@@ -17,6 +17,7 @@ import {
   PenTool,
   HeartHandshake,
   Calendar,
+  HandHeart,
 } from "lucide-react";
 import { useAudio } from "../hooks/useAudio";
 import { SOUNDS } from "../data/constants";
@@ -25,7 +26,7 @@ import { SOUNDS } from "../data/constants";
 const NAV_ITEMS = [
   { path: "/", label: "Trang Chủ", icon: <Home size={20} /> },
   { path: "/incense", label: "Dâng Hương", icon: <Flame size={20} /> },
-  { path: "/prayer", label: "Cầu Nguyện", icon: <Sparkles size={20} /> },
+  { path: "/prayer", label: "Cầu Nguyện", icon: <HandHeart size={20} /> },
   { path: "/fortune", label: "Xin Xăm", icon: <Scroll size={20} /> },
   { path: "/lucky", label: "Hái Lộc", icon: <Gift size={20} /> },
   { path: "/calligraphy", label: "Xin Chữ", icon: <PenTool size={20} /> },
@@ -87,7 +88,11 @@ const MainLayout = ({ user, setUser }) => {
       >
         <div className="p-6 border-b border-inherit">
           <h1 className="text-2xl font-bold font-calligraphy text-red-800 flex items-center gap-2">
-            <span>⛩️</span> Chùa Online
+            <img
+              className="w-14 h-14 rounded-full"
+              src="https://res.cloudinary.com/dy9yts4fa/image/upload/v1770957358/IMG_20260213_113326_d2tudw.png"
+            />{" "}
+            Chùa Online
           </h1>
           <p className="text-xs text-gray-500 mt-1 font-serif">
             Xuân Bính Ngọ 2026

@@ -7,6 +7,7 @@ import {
   Gift,
   HeartHandshake,
   Calendar,
+  HandHeart,
 } from "lucide-react";
 
 const Home = () => {
@@ -24,7 +25,7 @@ const Home = () => {
       id: "prayer",
       label: "Cầu Nguyện",
       path: "/prayer",
-      icon: <Sparkles className="text-purple-500" />,
+      icon: <HandHeart className="text-purple-500" />,
       color: "bg-purple-50",
     },
     {
