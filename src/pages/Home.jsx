@@ -1,6 +1,13 @@
 import React from "react";
 import { Link, useOutletContext } from "react-router-dom";
-import { Flame, Sparkles, Scroll, Gift, HeartHandshake } from "lucide-react";
+import {
+  Flame,
+  Sparkles,
+  Scroll,
+  Gift,
+  HeartHandshake,
+  Calendar,
+} from "lucide-react";
 
 const Home = () => {
   const { isDark, playClick, user } = useOutletContext();
@@ -40,6 +47,13 @@ const Home = () => {
       path: "/calligraphy",
       icon: <span className="text-2xl">🖌️</span>,
       color: "bg-yellow-50",
+    },
+    {
+      id: "calendar",
+      label: "Lịch Vạn Niên",
+      path: "/calendar",
+      icon: <Calendar className="text-red-400" size={20} />,
+      color: "bg-blue-50",
     },
     {
       id: "donation",
