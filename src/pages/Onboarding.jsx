@@ -120,7 +120,7 @@ const Onboarding = ({ onComplete }) => {
           </div>
 
           <h1 className="text-4xl font-bold text-red-800 font-calligraphy mb-2">
-            Chùa Online
+            Viếng Chùa Online
           </h1>
           <p className="text-yellow-800 font-bold text-lg bg-yellow-100 inline-block px-4 py-1 rounded-full border border-yellow-300">
             Xuân Bính Ngọ 2026
@@ -174,7 +174,7 @@ const Onboarding = ({ onComplete }) => {
             type="submit"
             className="w-full mt-4 bg-gradient-to-r from-red-700 to-red-800 text-yellow-50 font-bold py-3.5 rounded-xl hover:from-red-600 hover:to-red-700 transition transform active:scale-95 shadow-lg border-b-4 border-red-900 text-xl flex items-center justify-center gap-2 group"
           >
-            <span>Nhập Cửa Chùa</span>
+            <span>Vào Cửa Chùa</span>
             <span className="group-hover:translate-x-1 transition-transform">
               ➔
             </span>
