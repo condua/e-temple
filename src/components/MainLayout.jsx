@@ -18,13 +18,14 @@ import {
   HeartHandshake,
   Calendar,
   HandHeart,
+  Castle,
 } from "lucide-react";
 import { useAudio } from "../hooks/useAudio";
 import { SOUNDS } from "../data/constants";
 
 // Danh sách menu cho Sidebar (Desktop)
 const NAV_ITEMS = [
-  { path: "/", label: "Trang Chủ", icon: <Home size={20} /> },
+  { path: "/", label: "Chánh Điện", icon: <Castle size={20} /> },
   { path: "/incense", label: "Dâng Hương", icon: <Flame size={20} /> },
   { path: "/prayer", label: "Cầu Nguyện", icon: <HandHeart size={20} /> },
   { path: "/fortune", label: "Xin Xăm", icon: <Scroll size={20} /> },
